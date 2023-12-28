@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  MyGameListV2
 //
 //  Created by Kelvin Batista Machado on 19/12/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     lazy private var sampleLabel: UILabel = {
         let label = UILabel()
