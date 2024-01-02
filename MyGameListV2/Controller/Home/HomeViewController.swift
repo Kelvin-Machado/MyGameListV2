@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     lazy private var sampleLabel: UILabel = {
         let label = UILabel()
