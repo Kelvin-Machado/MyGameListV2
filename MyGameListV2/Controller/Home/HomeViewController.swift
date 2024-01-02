@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     lazy private var sampleLabel: UILabel = {
         let label = UILabel()
@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.black
+        self.view.backgroundColor = UIColor.darkGray
         self.view.addSubview(self.sampleLabel)
         self.setUpConstraints()
     }
