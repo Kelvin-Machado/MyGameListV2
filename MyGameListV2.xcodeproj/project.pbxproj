@@ -12,6 +12,9 @@
 		B6B038002B44648B0042C2E6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */; };
 		B6B038022B447F140042C2E6 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B038012B447F140042C2E6 /* CustomTabBarController.swift */; };
 		B6B95AC22B40616C009110FB /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B95AC12B40616C009110FB /* TabViewController.swift */; };
+		B6D8A2212B45945C00C9DD4B /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2202B45945C00C9DD4B /* SearchScreenViewController.swift */; };
+		B6D8A2242B45967E00C9DD4B /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */; };
+		B6D8A2282B4625EC00C9DD4B /* SearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2272B4625EC00C9DD4B /* SearchScreenViewModel.swift */; };
 		B6F5C6FF2B31E15D00F58648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5C6FE2B31E15D00F58648 /* AppDelegate.swift */; };
 		B6F5C7012B31E15D00F58648 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5C7002B31E15D00F58648 /* SceneDelegate.swift */; };
 		B6F5C7032B31E15D00F58648 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5C7022B31E15D00F58648 /* HomeViewController.swift */; };
@@ -46,6 +49,9 @@
 		B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B6B038012B447F140042C2E6 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		B6B95AC12B40616C009110FB /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		B6D8A2202B45945C00C9DD4B /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
+		B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		B6D8A2272B4625EC00C9DD4B /* SearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewModel.swift; sourceTree = "<group>"; };
 		B6F5C6FB2B31E15D00F58648 /* MyGameListV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGameListV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F5C6FE2B31E15D00F58648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6F5C7002B31E15D00F58648 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 				B6B037F92B445E480042C2E6 /* Base */,
 				B6B038032B4486E60042C2E6 /* CustomControllers */,
 				B672C5252B3E10D600F1D87D /* Home */,
+				B6D8A21F2B45941E00C9DD4B /* SearchScreen */,
 				B6B95AC02B406115009110FB /* TabBar */,
 			);
 			path = Controller;
@@ -185,6 +192,24 @@
 				B6B95AC12B40616C009110FB /* TabViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		B6D8A21F2B45941E00C9DD4B /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B6D8A2222B45964500C9DD4B /* Cell */,
+				B6D8A2202B45945C00C9DD4B /* SearchScreenViewController.swift */,
+				B6D8A2272B4625EC00C9DD4B /* SearchScreenViewModel.swift */,
+			);
+			path = SearchScreen;
+			sourceTree = "<group>";
+		};
+		B6D8A2222B45964500C9DD4B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B6F5C6F22B31E15D00F58648 = {
@@ -368,8 +393,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D8A2282B4625EC00C9DD4B /* SearchScreenViewModel.swift in Sources */,
 				B6B038022B447F140042C2E6 /* CustomTabBarController.swift in Sources */,
+				B6D8A2242B45967E00C9DD4B /* SearchResultCollectionViewCell.swift in Sources */,
 				B6F5C7032B31E15D00F58648 /* HomeViewController.swift in Sources */,
+				B6D8A2212B45945C00C9DD4B /* SearchScreenViewController.swift in Sources */,
 				B6F5C7092B31E15E00F58648 /* MyGameListV2.xcdatamodeld in Sources */,
 				B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */,
 				B6F5C6FF2B31E15D00F58648 /* AppDelegate.swift in Sources */,
