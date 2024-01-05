@@ -11,10 +11,10 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupBaseUI()
     }
     
-    func setupUI() {
+    func setupBaseUI() {
         initNavigationController()
     }
     
