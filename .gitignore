@@ -46,6 +46,9 @@ DerivedData/
 timeline.xctimeline
 playground.xcworkspace
 
+## Ignorar o arquivo de configuração
+ConfigAPI.plist
+
 # Swift Package Manager
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/

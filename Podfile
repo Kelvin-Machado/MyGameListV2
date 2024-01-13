@@ -6,6 +6,8 @@ use_frameworks!
 target 'MyGameListV2' do
 # Pods for MyGameListV2
 pod 'Alamofire'
+pod 'RxSwift', '6.6.0'
+pod 'RxCocoa', '6.6.0'
   
 
   target 'MyGameListV2Tests' do
