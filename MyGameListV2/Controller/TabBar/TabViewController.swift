@@ -24,7 +24,7 @@ class TabViewController: CustomTabBarController {
     // MARK: - Tab Setup
     private func setupTabs() {
         let home = createNav(with: "home", and: UIImage(systemName: "house"), vc: HomeViewController())
-        let search = createNav(with: "search", and: UIImage(systemName: "magnifyingglass"), vc: SearchScreenViewController())
+        let search = createNav(with: "search", and: UIImage(systemName: "magnifyingglass"), vc: SearchScreenViewController(viewModel: SearchScreenViewModel(dataProvider: SearchScreenDataProvider())))
         let add = createNav(with: "add a game", and: UIImage(systemName: "plus.circle"), vc: HomeViewController())
         let list = createNav(with: "MyGameList", and: UIImage(systemName: "list.star"), vc: HomeViewController())
         let profile = createNav(with: "profile", and: UIImage(systemName: "person"), vc: HomeViewController())
