@@ -8,7 +8,11 @@
 import Foundation
 import RxSwift
 
-class SearchScreenDataProvider {
+protocol SearchScreenDataProviderProtocol {
+    func searchGames(withName name: String) -> Observable<Game>
+}
+
+class SearchScreenDataProvider:  SearchScreenDataProviderProtocol {
     func searchGames(withName name: String) -> Observable<Game> {
         let request = APIRequest<Game>(path: "games/\(name)")
         return APIClient.shared.send(request)

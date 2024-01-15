@@ -13,7 +13,7 @@ class SearchScreenViewController: BaseViewController {
     var searchingGame = ""
     
     let viewModel: SearchScreenViewModel
-        init(viewModel: SearchScreenViewModel = SearchScreenViewModel(dataProvider: SearchScreenDataProvider())) {
+    init(viewModel: SearchScreenViewModel = SearchScreenViewModel()) {
             self.viewModel = viewModel
             super.init(nibName: nil, bundle: nil)
         }
