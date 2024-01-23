@@ -19,7 +19,7 @@ class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGray
+        self.view.backgroundColor = Color.background
         self.view.addSubview(self.sampleLabel)
         self.setUpConstraints()
     }
