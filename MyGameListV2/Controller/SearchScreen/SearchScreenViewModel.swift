@@ -9,12 +9,12 @@ import Foundation
 import RxSwift
 
 class SearchScreenViewModel {
-    private let dataProvider: SearchScreenDataProvider
+    private let dataProvider: SearchScreenDataProviderProtocol
     private let disposeBag = DisposeBag()
 
     let searchResults: PublishSubject<Game> = PublishSubject()
 
-    init(dataProvider: SearchScreenDataProvider) {
+    init(dataProvider: SearchScreenDataProviderProtocol = SearchScreenDataProvider()) {
         self.dataProvider = dataProvider
     }
 
