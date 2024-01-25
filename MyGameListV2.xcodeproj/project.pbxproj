@@ -18,6 +18,7 @@
 		B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FD2B4463D30042C2E6 /* Color.swift */; };
 		B6B038002B44648B0042C2E6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */; };
 		B6B038022B447F140042C2E6 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B038012B447F140042C2E6 /* CustomTabBarController.swift */; };
+		B6B372BC2B62934F00AEB155 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B372BB2B62934F00AEB155 /* UIView+Extension.swift */; };
 		B6B95AC22B40616C009110FB /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B95AC12B40616C009110FB /* TabViewController.swift */; };
 		B6D8A2212B45945C00C9DD4B /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2202B45945C00C9DD4B /* SearchScreenViewController.swift */; };
 		B6D8A2242B45967E00C9DD4B /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */; };
@@ -71,6 +72,7 @@
 		B6B037FD2B4463D30042C2E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B6B038012B447F140042C2E6 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		B6B372BB2B62934F00AEB155 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B6B95AC12B40616C009110FB /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		B6D8A2202B45945C00C9DD4B /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */,
 				B621438A2B4B63290089721D /* Decodable+Extension.swift */,
+				B6B372BB2B62934F00AEB155 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 			files = (
 				B6D8A2282B4625EC00C9DD4B /* SearchScreenViewModel.swift in Sources */,
 				B62143812B49E3330089721D /* APIClient.swift in Sources */,
+				B6B372BC2B62934F00AEB155 /* UIView+Extension.swift in Sources */,
 				B6B038022B447F140042C2E6 /* CustomTabBarController.swift in Sources */,
 				B621437F2B49E2F50089721D /* APIRequest.swift in Sources */,
 				B62143892B4A066C0089721D /* SearchScreenDataProvider.swift in Sources */,

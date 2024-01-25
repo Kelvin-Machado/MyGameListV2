@@ -40,7 +40,7 @@ class SearchResultCollectionViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = Color.background
+        backgroundColor = Color.clear
         setupUI()
     }
 

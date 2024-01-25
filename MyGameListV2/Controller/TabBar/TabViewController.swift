@@ -16,6 +16,7 @@ class TabViewController: CustomTabBarController {
         tabBar.isTranslucent = false
         tabBar.barTintColor = .black
         tabBar.tintColor = .white
+        tabBar.backgroundColor = Color.primary
         tabBar.unselectedItemTintColor = .lightGray
 
     }
