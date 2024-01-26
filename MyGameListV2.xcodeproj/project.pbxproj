@@ -19,6 +19,7 @@
 		B6B038002B44648B0042C2E6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */; };
 		B6B038022B447F140042C2E6 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B038012B447F140042C2E6 /* CustomTabBarController.swift */; };
 		B6B372BC2B62934F00AEB155 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B372BB2B62934F00AEB155 /* UIView+Extension.swift */; };
+		B6B372C02B646AA800AEB155 /* ErrorPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B372BF2B646AA500AEB155 /* ErrorPopupViewController.swift */; };
 		B6B95AC22B40616C009110FB /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B95AC12B40616C009110FB /* TabViewController.swift */; };
 		B6D8A2212B45945C00C9DD4B /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2202B45945C00C9DD4B /* SearchScreenViewController.swift */; };
 		B6D8A2242B45967E00C9DD4B /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */; };
@@ -73,6 +74,7 @@
 		B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B6B038012B447F140042C2E6 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		B6B372BB2B62934F00AEB155 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B6B372BF2B646AA500AEB155 /* ErrorPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopupViewController.swift; sourceTree = "<group>"; };
 		B6B95AC12B40616C009110FB /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		B6D8A2202B45945C00C9DD4B /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				B6B037F92B445E480042C2E6 /* Base */,
 				B6B038032B4486E60042C2E6 /* CustomControllers */,
 				B672C5252B3E10D600F1D87D /* Home */,
+				B6B372BE2B6469D500AEB155 /* PopupErrorController */,
 				B6D8A21F2B45941E00C9DD4B /* SearchScreen */,
 				B6B95AC02B406115009110FB /* TabBar */,
 			);
@@ -261,6 +264,14 @@
 				B6B038012B447F140042C2E6 /* CustomTabBarController.swift */,
 			);
 			path = CustomControllers;
+			sourceTree = "<group>";
+		};
+		B6B372BE2B6469D500AEB155 /* PopupErrorController */ = {
+			isa = PBXGroup;
+			children = (
+				B6B372BF2B646AA500AEB155 /* ErrorPopupViewController.swift */,
+			);
+			path = PopupErrorController;
 			sourceTree = "<group>";
 		};
 		B6B95AC02B406115009110FB /* TabBar */ = {
@@ -592,6 +603,7 @@
 				B6F5C7032B31E15D00F58648 /* HomeViewController.swift in Sources */,
 				B621438B2B4B63290089721D /* Decodable+Extension.swift in Sources */,
 				B6D8A2212B45945C00C9DD4B /* SearchScreenViewController.swift in Sources */,
+				B6B372C02B646AA800AEB155 /* ErrorPopupViewController.swift in Sources */,
 				B62143842B49FBB40089721D /* GameDetailsRoute.swift in Sources */,
 				B6F5C7092B31E15E00F58648 /* MyGameListV2.xcdatamodeld in Sources */,
 				B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */,

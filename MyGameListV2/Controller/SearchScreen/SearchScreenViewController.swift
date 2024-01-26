@@ -47,15 +47,23 @@ class SearchScreenViewController: BaseViewController {
     
     func bindViewModel() {
         viewModel.searchResults
-            .subscribe(onNext: { [weak self] game in
-                print("Game Name: \(game.name)")
-                print("Slug: \(game.slug)")
-                if let redirect = game.redirect, redirect {
-                    self?.searchingGame = game.slug
-                    self?.viewModel.searchGames(withName: game.slug)
+            .subscribe(onNext: { [weak self] result in
+                switch result {
+                case .success(let game):
+                    print("Game Name: \(game.name)")
+                    print("Slug: \(game.slug)")
+                    if let redirect = game.redirect, redirect {
+                        self?.searchingGame = game.slug
+                        self?.viewModel.searchGames(withName: game.slug)
+                        return
+                    }
+                    self?.searchedGame = game
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    let errorPopup = ErrorPopupViewController(errorMessage: error.localizedDescription)
+                    self?.present(errorPopup, animated: true, completion: nil)
                 }
-                self?.searchedGame = game
-                self?.tableView.reloadData()
+                
             })
             .disposed(by: disposeBag)
 
@@ -136,3 +144,4 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         print(searchedGame.name)
     }
 }
+
