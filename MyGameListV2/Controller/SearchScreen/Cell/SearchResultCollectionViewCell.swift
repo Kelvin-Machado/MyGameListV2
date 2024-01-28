@@ -13,7 +13,7 @@ class SearchResultCollectionViewCell: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = Color.primary
-        view.layer.cornerRadius = 10 // Ajuste conforme necessário
+        view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
         return view
     }()

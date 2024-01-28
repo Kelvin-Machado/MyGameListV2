@@ -16,8 +16,9 @@ struct Color {
     
     //cores de fundo
     static var background = UIColor(hexString: "#555555")
-    static var backgroundGradient1 = UIColor(hexString: "#202020")
-    static var backgroundGradient2 = UIColor(hexString: "#303030")
+    private static var backgroundGradient1 = UIColor(hexString: "#191a1b")
+    private static var backgroundGradient2 = UIColor(hexString: "#303030")
+    static var backgroundGradient: [UIColor] = [Color.uiColor(Color.backgroundGradient1), Color.uiColor(Color.backgroundGradient2), Color.uiColor(Color.backgroundGradient1)]
     
     static var buttonBackground = UIColor(hexString: "C0C0C0")
     static var buttonText = UIColor(hexString: "FFFFFF")

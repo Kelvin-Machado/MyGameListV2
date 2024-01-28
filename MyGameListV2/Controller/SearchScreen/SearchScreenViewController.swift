@@ -39,7 +39,7 @@ class SearchScreenViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.applyGradientBackground(colors: [Color.uiColor(Color.backgroundGradient1), Color.uiColor(Color.backgroundGradient2), Color.uiColor(Color.backgroundGradient1)])
+        view.applyGradientBackground(colors: Color.backgroundGradient)
         configuraSearchBar()
         configureTableView()
         bindViewModel()
@@ -98,7 +98,7 @@ class SearchScreenViewController: BaseViewController {
         view.addSubview(tableView)
 
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -128,6 +128,10 @@ extension SearchScreenViewController: UISearchBarDelegate {
 extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchedGame != nil ? 1 : 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 16
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -11,7 +11,7 @@ class ErrorPopupViewController: UIViewController {
 
     private let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = Color.backgroundGradient1
+        view.backgroundColor = Color.black
         view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
         return view
@@ -71,7 +71,7 @@ class ErrorPopupViewController: UIViewController {
         super.viewDidAppear(animated)
         
         UIView.animate(withDuration: 0.3) {
-            self.view.backgroundColor = Color.backgroundGradient1?.withAlphaComponent(0.5)
+            self.view.backgroundColor = Color.black?.withAlphaComponent(0.5)
         }
     }
 
@@ -121,7 +121,7 @@ class ErrorPopupViewController: UIViewController {
     
     @objc private func closeButtonTapped() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.view.backgroundColor = Color.backgroundGradient1?.withAlphaComponent(0.5)
+            self.view.backgroundColor = Color.black?.withAlphaComponent(0.5)
         }) { _ in
             self.dismiss(animated: true, completion: nil)
         }
