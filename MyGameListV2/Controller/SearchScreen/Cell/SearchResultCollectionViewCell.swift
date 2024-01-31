@@ -49,16 +49,24 @@ class SearchResultCollectionViewCell: UITableViewCell {
     }
 
     private func setupUI() {
-        addSubview(containerView)
+        contentView.addSubview(containerView)
         containerView.addSubview(gameImageView)
         containerView.addSubview(dividerView)
         containerView.addSubview(nameLabel)
 
+        contentView.layer.shadowColor = Color.whiteSmoke?.cgColor
+        contentView.layer.shadowOpacity = 0.1
+        contentView.layer.shadowOffset = .zero
+        contentView.layer.shadowRadius = 10
+        contentView.layer.shouldRasterize = true
+        contentView.layer.rasterizationScale = UIScreen.main.scale
+        contentView.layer.masksToBounds = false
+
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
 
             gameImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
             gameImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
