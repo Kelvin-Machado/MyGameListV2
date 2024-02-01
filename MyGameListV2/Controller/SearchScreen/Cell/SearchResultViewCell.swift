@@ -1,5 +1,5 @@
 //
-//  SearchResultCollectionViewCell.swift
+//  SearchResultViewCell.swift
 //  MyGameListV2
 //
 //  Created by Kelvin Batista Machado on 03/01/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchResultCollectionViewCell: UITableViewCell {
+class SearchResultViewCell: UITableViewCell {
 
     private let containerView: UIView = {
         let view = UIView()

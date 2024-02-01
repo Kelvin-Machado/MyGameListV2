@@ -87,7 +87,7 @@ class SearchScreenViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(SearchResultCollectionViewCell.self, forCellReuseIdentifier: "GameCell")
+        tableView.register(SearchResultViewCell.self, forCellReuseIdentifier: "GameCell")
         view.addSubview(tableView)
 
         NSLayoutConstraint.activate([
@@ -124,7 +124,7 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? SearchResultCollectionViewCell, !searchedGames.isEmpty else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? SearchResultViewCell, !searchedGames.isEmpty else {
             return UITableViewCell()
         }
         cell.configure(with: searchedGames[indexPath.row])
