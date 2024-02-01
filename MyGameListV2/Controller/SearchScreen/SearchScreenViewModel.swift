@@ -12,7 +12,7 @@ class SearchScreenViewModel {
     private let dataProvider: SearchScreenDataProviderProtocol
     private let disposeBag = DisposeBag()
 
-    let searchResults: PublishSubject<Result<Game, Error>> = PublishSubject()
+    let searchResults: PublishSubject<Result<Search, Error>> = PublishSubject()
 
     init(dataProvider: SearchScreenDataProviderProtocol = SearchScreenDataProvider()) {
         self.dataProvider = dataProvider

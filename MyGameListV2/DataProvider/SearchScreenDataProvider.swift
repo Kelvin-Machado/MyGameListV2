@@ -9,12 +9,12 @@ import Foundation
 import RxSwift
 
 protocol SearchScreenDataProviderProtocol {
-    func searchGames(withName name: String) -> Observable<Result<Game, Error>>
+    func searchGames(withName name: String) -> Observable<Result<Search, Error>>
    }
 
 class SearchScreenDataProvider: SearchScreenDataProviderProtocol {
-    func searchGames(withName name: String) -> Observable<Result<Game, Error>> {
-        let request = APIRequest<Game>(path: "games/\(name)")
+    func searchGames(withName name: String) -> Observable<Result<Search, Error>> {
+        let request = APIRequest<Search>(path: "games", parameters: ["search": name])
         return APIClient.shared.send(request)
             .map { Result.success($0) }
             .catch { error in
@@ -22,4 +22,3 @@ class SearchScreenDataProvider: SearchScreenDataProviderProtocol {
             }
     }
 }
-

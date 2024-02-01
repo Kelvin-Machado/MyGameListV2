@@ -13,7 +13,7 @@ class SearchScreenViewController: BaseViewController {
     //MARK: - properties
     let searchBar = UISearchController()
     var searchingGame = ""
-    var searchedGame: Game? = nil
+    var searchedGames: [Game] = []
     
     let viewModel: SearchScreenViewModel
 
@@ -49,15 +49,8 @@ class SearchScreenViewController: BaseViewController {
         viewModel.searchResults
             .subscribe(onNext: { [weak self] result in
                 switch result {
-                case .success(let game):
-                    print("Game Name: \(game.name)")
-                    print("Slug: \(game.slug)")
-                    if let redirect = game.redirect, redirect {
-                        self?.searchingGame = game.slug
-                        self?.viewModel.searchGames(withName: game.slug)
-                        return
-                    }
-                    self?.searchedGame = game
+                case .success(let searchedResults):
+                    self?.searchedGames = searchedResults.games
                     self?.tableView.reloadData()
                 case .failure(let error):
                     let errorPopup = ErrorPopupViewController(errorMessage: error.localizedDescription)
@@ -127,7 +120,7 @@ extension SearchScreenViewController: UISearchBarDelegate {
 
 extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchedGame != nil ? 1 : 0
+        return searchedGames.isEmpty ? 0 : searchedGames.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -135,16 +128,17 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? SearchResultCollectionViewCell, searchedGame != nil else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? SearchResultCollectionViewCell, !searchedGames.isEmpty else {
             return UITableViewCell()
         }
-        cell.configure(with: searchedGame!)
+        cell.configure(with: searchedGames[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let searchedGame = searchedGame else { return }
+        guard searchedGames.isEmpty else {return}
+        let searchedGame: Game = searchedGames[indexPath.row]
         print(searchedGame.name)
     }
 }
