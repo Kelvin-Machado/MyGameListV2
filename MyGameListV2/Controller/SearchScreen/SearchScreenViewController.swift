@@ -123,10 +123,6 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         return searchedGames.isEmpty ? 0 : searchedGames.count
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 16
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? SearchResultCollectionViewCell, !searchedGames.isEmpty else {
             return UITableViewCell()
@@ -137,7 +133,7 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard searchedGames.isEmpty else {return}
+        guard !searchedGames.isEmpty else {return}
         let searchedGame: Game = searchedGames[indexPath.row]
         print(searchedGame.name)
     }
