@@ -84,6 +84,7 @@ class SearchScreenViewController: BaseViewController {
         searchBar.searchBar.placeholder = "Informe o nome do jogo"
         searchBar.searchBar.barStyle = .black
         navigationItem.searchController = searchBar
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func configureTableView() {
