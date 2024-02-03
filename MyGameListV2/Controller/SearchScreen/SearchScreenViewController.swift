@@ -8,7 +8,6 @@
 import UIKit
 
 class SearchScreenViewController: BaseViewController {
-
     
     //MARK: - properties
     let searchBar = UISearchController()
@@ -17,7 +16,6 @@ class SearchScreenViewController: BaseViewController {
     var isLoad = false
     
     let viewModel: SearchScreenViewModel
-
     
     //MARK: - views
     private let tableView: UITableView = {
@@ -76,7 +74,6 @@ class SearchScreenViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    
     func configuraSearchBar() {
         searchBar.searchBar.delegate = self
         searchBar.searchBar.autocapitalizationType = .none
@@ -102,7 +99,6 @@ class SearchScreenViewController: BaseViewController {
         ])
     }
 
-
     private func searchGames() {
         guard !searchingGame.isEmpty else { return }
         
@@ -111,6 +107,9 @@ class SearchScreenViewController: BaseViewController {
         tableView.reloadData()
         searchingGame = searchingGame.lowercased().replacingOccurrences(of: " ", with: "-", options: .literal, range: nil)
         viewModel.searchGames(withName: searchingGame)
+        
+        let topIndexPath = IndexPath(row: 0, section: 0)
+        tableView.scrollToRow(at: topIndexPath, at: .top, animated: true)
     }
 }
 
@@ -127,7 +126,7 @@ extension SearchScreenViewController: UISearchBarDelegate {
 
 extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isLoad ? (searchedGames.isEmpty ? 0 : searchedGames.count) : 5
+        return isLoad ? searchedGames.count : (!isLoad && searchingGame.isEmpty ? 0 : 5)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -144,6 +143,14 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         cell.selectionStyle = .none
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            if let resultCell = cell as? SearchResultViewCell {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    resultCell.containerView.isShimmering = !self.isLoad
+                }
+            }
+        }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard !searchedGames.isEmpty else {return}

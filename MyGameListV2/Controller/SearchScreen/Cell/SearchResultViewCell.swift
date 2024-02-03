@@ -9,7 +9,7 @@ import UIKit
 
 class SearchResultViewCell: UITableViewCell {
 
-    private let containerView: UIView = {
+    let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = Color.primary
@@ -95,8 +95,6 @@ class SearchResultViewCell: UITableViewCell {
             nameLabel.text = ""
             self.gameImageView.image = nil
         }
-        
-        containerView.isShimmering = !isLoad 
     }
 
     private func loadImage(from urlString: String) {
