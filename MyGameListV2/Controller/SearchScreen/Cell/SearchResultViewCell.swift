@@ -54,10 +54,10 @@ class SearchResultViewCell: UITableViewCell {
         containerView.addSubview(dividerView)
         containerView.addSubview(nameLabel)
 
-        contentView.layer.shadowColor = Color.whiteSmoke?.cgColor
-        contentView.layer.shadowOpacity = 0.1
+        contentView.layer.shadowColor = Color.silver?.cgColor
+        contentView.layer.shadowOpacity = 0.2
         contentView.layer.shadowOffset = .zero
-        contentView.layer.shadowRadius = 10
+        contentView.layer.shadowRadius = 7
         contentView.layer.shouldRasterize = true
         contentView.layer.rasterizationScale = UIScreen.main.scale
         contentView.layer.masksToBounds = false
@@ -85,9 +85,18 @@ class SearchResultViewCell: UITableViewCell {
         ])
     }
 
-    func configure(with game: Game) {
-        nameLabel.text = game.name
-        loadImage(from: game.backgroundImage ?? "")
+    func configure(with game: Game?, isLoad: Bool) {
+        if isLoad, game != nil {
+            nameLabel.text = game?.name
+            loadImage(from: game?.backgroundImage ?? "")
+            dividerView.isHidden = false
+        } else {
+            dividerView.isHidden = true
+            nameLabel.text = ""
+            self.gameImageView.image = nil
+        }
+        
+        containerView.isShimmering = !isLoad 
     }
 
     private func loadImage(from urlString: String) {
