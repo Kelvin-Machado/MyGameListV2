@@ -1,5 +1,5 @@
 //
-//  SearchResultCollectionViewCell.swift
+//  SearchResultViewCell.swift
 //  MyGameListV2
 //
 //  Created by Kelvin Batista Machado on 03/01/24.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class SearchResultCollectionViewCell: UITableViewCell {
+class SearchResultViewCell: UITableViewCell {
 
-    private let containerView: UIView = {
+    let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = Color.primary
-        view.layer.cornerRadius = 10 // Ajuste conforme necessário
+        view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
         return view
     }()
@@ -40,7 +40,7 @@ class SearchResultCollectionViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = Color.background
+        backgroundColor = Color.clear
         setupUI()
     }
 
@@ -49,16 +49,24 @@ class SearchResultCollectionViewCell: UITableViewCell {
     }
 
     private func setupUI() {
-        addSubview(containerView)
+        contentView.addSubview(containerView)
         containerView.addSubview(gameImageView)
         containerView.addSubview(dividerView)
         containerView.addSubview(nameLabel)
 
+        contentView.layer.shadowColor = Color.silver?.cgColor
+        contentView.layer.shadowOpacity = 0.2
+        contentView.layer.shadowOffset = .zero
+        contentView.layer.shadowRadius = 7
+        contentView.layer.shouldRasterize = true
+        contentView.layer.rasterizationScale = UIScreen.main.scale
+        contentView.layer.masksToBounds = false
+
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
 
             gameImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
             gameImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
@@ -77,9 +85,16 @@ class SearchResultCollectionViewCell: UITableViewCell {
         ])
     }
 
-    func configure(with game: Game) {
-        nameLabel.text = game.name
-        loadImage(from: game.backgroundImage ?? "")
+    func configure(with game: Game?, isLoad: Bool) {
+        if isLoad, game != nil {
+            nameLabel.text = game?.name
+            loadImage(from: game?.backgroundImage ?? "")
+            dividerView.isHidden = false
+        } else {
+            dividerView.isHidden = true
+            nameLabel.text = ""
+            self.gameImageView.image = nil
+        }
     }
 
     private func loadImage(from urlString: String) {

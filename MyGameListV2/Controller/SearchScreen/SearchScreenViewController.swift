@@ -8,20 +8,19 @@
 import UIKit
 
 class SearchScreenViewController: BaseViewController {
-
     
     //MARK: - properties
     let searchBar = UISearchController()
     var searchingGame = ""
-    var searchedGame: Game? = nil
+    var searchedGames: [Game] = []
+    var isLoad = false
     
     let viewModel: SearchScreenViewModel
-
     
     //MARK: - views
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = Color.background
+        tableView.backgroundColor = Color.clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         return tableView
@@ -39,7 +38,7 @@ class SearchScreenViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.dimGray
+        view.applyGradientBackground(colors: Color.backgroundGradient)
         configuraSearchBar()
         configureTableView()
         bindViewModel()
@@ -47,15 +46,18 @@ class SearchScreenViewController: BaseViewController {
     
     func bindViewModel() {
         viewModel.searchResults
-            .subscribe(onNext: { [weak self] game in
-                print("Game Name: \(game.name)")
-                print("Slug: \(game.slug)")
-                if let redirect = game.redirect, redirect {
-                    self?.searchingGame = game.slug
-                    self?.viewModel.searchGames(withName: game.slug)
+            .subscribe(onNext: { [weak self] result in
+                self?.isLoad = true
+                switch result {
+                case .success(let searchedResults):
+                    self?.searchedGames = searchedResults.games
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    let errorPopup = ErrorPopupViewController(errorMessage: error.localizedDescription)
+                    self?.tableView.reloadData()
+                    self?.present(errorPopup, animated: true, completion: nil)
                 }
-                self?.searchedGame = game
-                self?.tableView.reloadData()
+                
             })
             .disposed(by: disposeBag)
 
@@ -72,7 +74,6 @@ class SearchScreenViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    
     func configuraSearchBar() {
         searchBar.searchBar.delegate = self
         searchBar.searchBar.autocapitalizationType = .none
@@ -80,16 +81,16 @@ class SearchScreenViewController: BaseViewController {
         searchBar.searchBar.placeholder = "Informe o nome do jogo"
         searchBar.searchBar.barStyle = .black
         navigationItem.searchController = searchBar
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(SearchResultCollectionViewCell.self, forCellReuseIdentifier: "GameCell")
+        tableView.register(SearchResultViewCell.self, forCellReuseIdentifier: "GameCell")
         view.addSubview(tableView)
 
-        // Constraints for the table view
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -98,12 +99,17 @@ class SearchScreenViewController: BaseViewController {
         ])
     }
 
-
     private func searchGames() {
         guard !searchingGame.isEmpty else { return }
         
+        isLoad = false
+        searchedGames = []
+        tableView.reloadData()
         searchingGame = searchingGame.lowercased().replacingOccurrences(of: " ", with: "-", options: .literal, range: nil)
         viewModel.searchGames(withName: searchingGame)
+        
+        let topIndexPath = IndexPath(row: 0, section: 0)
+        tableView.scrollToRow(at: topIndexPath, at: .top, animated: true)
     }
 }
 
@@ -120,20 +126,36 @@ extension SearchScreenViewController: UISearchBarDelegate {
 
 extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchedGame != nil ? 1 : 0
+        return isLoad ? searchedGames.count : (!isLoad && searchingGame.isEmpty ? 0 : 5)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? SearchResultCollectionViewCell, searchedGame != nil else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? SearchResultViewCell else {
             return UITableViewCell()
         }
-        cell.configure(with: searchedGame!)
+        
+        if isLoad,!searchedGames.isEmpty {
+            cell.configure(with: searchedGames[indexPath.row], isLoad: isLoad)
+        } else {
+            cell.configure(with: nil, isLoad: isLoad)
+        }
+        
         cell.selectionStyle = .none
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            if let resultCell = cell as? SearchResultViewCell {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    resultCell.containerView.isShimmering = !self.isLoad
+                }
+            }
+        }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let searchedGame = searchedGame else { return }
+        guard !searchedGames.isEmpty else {return}
+        let searchedGame: Game = searchedGames[indexPath.row]
         print(searchedGame.name)
     }
 }
+

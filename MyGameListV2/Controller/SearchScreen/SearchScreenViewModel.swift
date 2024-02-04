@@ -12,7 +12,7 @@ class SearchScreenViewModel {
     private let dataProvider: SearchScreenDataProviderProtocol
     private let disposeBag = DisposeBag()
 
-    let searchResults: PublishSubject<Game> = PublishSubject()
+    let searchResults: PublishSubject<Result<Search, Error>> = PublishSubject()
 
     init(dataProvider: SearchScreenDataProviderProtocol = SearchScreenDataProvider()) {
         self.dataProvider = dataProvider
@@ -20,8 +20,8 @@ class SearchScreenViewModel {
 
     func searchGames(withName name: String) {
         dataProvider.searchGames(withName: name)
-            .subscribe(onNext: { [weak self] games in
-                self?.searchResults.onNext(games)
+            .subscribe(onNext: { [weak self] result in
+                self?.searchResults.onNext(result)
             })
             .disposed(by: disposeBag)
     }

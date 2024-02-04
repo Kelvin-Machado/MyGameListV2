@@ -18,9 +18,11 @@
 		B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FD2B4463D30042C2E6 /* Color.swift */; };
 		B6B038002B44648B0042C2E6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */; };
 		B6B038022B447F140042C2E6 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B038012B447F140042C2E6 /* CustomTabBarController.swift */; };
+		B6B372BC2B62934F00AEB155 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B372BB2B62934F00AEB155 /* UIView+Extension.swift */; };
+		B6B372C02B646AA800AEB155 /* ErrorPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B372BF2B646AA500AEB155 /* ErrorPopupViewController.swift */; };
 		B6B95AC22B40616C009110FB /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B95AC12B40616C009110FB /* TabViewController.swift */; };
 		B6D8A2212B45945C00C9DD4B /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2202B45945C00C9DD4B /* SearchScreenViewController.swift */; };
-		B6D8A2242B45967E00C9DD4B /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */; };
+		B6D8A2242B45967E00C9DD4B /* SearchResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2232B45967E00C9DD4B /* SearchResultViewCell.swift */; };
 		B6D8A2282B4625EC00C9DD4B /* SearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D8A2272B4625EC00C9DD4B /* SearchScreenViewModel.swift */; };
 		B6F5C6FF2B31E15D00F58648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5C6FE2B31E15D00F58648 /* AppDelegate.swift */; };
 		B6F5C7012B31E15D00F58648 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5C7002B31E15D00F58648 /* SceneDelegate.swift */; };
@@ -71,9 +73,11 @@
 		B6B037FD2B4463D30042C2E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B6B038012B447F140042C2E6 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		B6B372BB2B62934F00AEB155 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B6B372BF2B646AA500AEB155 /* ErrorPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopupViewController.swift; sourceTree = "<group>"; };
 		B6B95AC12B40616C009110FB /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		B6D8A2202B45945C00C9DD4B /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
-		B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		B6D8A2232B45967E00C9DD4B /* SearchResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewCell.swift; sourceTree = "<group>"; };
 		B6D8A2272B4625EC00C9DD4B /* SearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewModel.swift; sourceTree = "<group>"; };
 		B6F5C6FB2B31E15D00F58648 /* MyGameListV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGameListV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F5C6FE2B31E15D00F58648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 			children = (
 				B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */,
 				B621438A2B4B63290089721D /* Decodable+Extension.swift */,
+				B6B372BB2B62934F00AEB155 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				B6B037F92B445E480042C2E6 /* Base */,
 				B6B038032B4486E60042C2E6 /* CustomControllers */,
 				B672C5252B3E10D600F1D87D /* Home */,
+				B6B372BE2B6469D500AEB155 /* PopupErrorController */,
 				B6D8A21F2B45941E00C9DD4B /* SearchScreen */,
 				B6B95AC02B406115009110FB /* TabBar */,
 			);
@@ -260,6 +266,14 @@
 			path = CustomControllers;
 			sourceTree = "<group>";
 		};
+		B6B372BE2B6469D500AEB155 /* PopupErrorController */ = {
+			isa = PBXGroup;
+			children = (
+				B6B372BF2B646AA500AEB155 /* ErrorPopupViewController.swift */,
+			);
+			path = PopupErrorController;
+			sourceTree = "<group>";
+		};
 		B6B95AC02B406115009110FB /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,7 +295,7 @@
 		B6D8A2222B45964500C9DD4B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B6D8A2232B45967E00C9DD4B /* SearchResultCollectionViewCell.swift */,
+				B6D8A2232B45967E00C9DD4B /* SearchResultViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -581,13 +595,15 @@
 			files = (
 				B6D8A2282B4625EC00C9DD4B /* SearchScreenViewModel.swift in Sources */,
 				B62143812B49E3330089721D /* APIClient.swift in Sources */,
+				B6B372BC2B62934F00AEB155 /* UIView+Extension.swift in Sources */,
 				B6B038022B447F140042C2E6 /* CustomTabBarController.swift in Sources */,
 				B621437F2B49E2F50089721D /* APIRequest.swift in Sources */,
 				B62143892B4A066C0089721D /* SearchScreenDataProvider.swift in Sources */,
-				B6D8A2242B45967E00C9DD4B /* SearchResultCollectionViewCell.swift in Sources */,
+				B6D8A2242B45967E00C9DD4B /* SearchResultViewCell.swift in Sources */,
 				B6F5C7032B31E15D00F58648 /* HomeViewController.swift in Sources */,
 				B621438B2B4B63290089721D /* Decodable+Extension.swift in Sources */,
 				B6D8A2212B45945C00C9DD4B /* SearchScreenViewController.swift in Sources */,
+				B6B372C02B646AA800AEB155 /* ErrorPopupViewController.swift in Sources */,
 				B62143842B49FBB40089721D /* GameDetailsRoute.swift in Sources */,
 				B6F5C7092B31E15E00F58648 /* MyGameListV2.xcdatamodeld in Sources */,
 				B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */,
