@@ -10,8 +10,23 @@ import Foundation
 // MARK: - Search
 
 struct Search: Codable {
-    let redirect: Bool
-    let slug: String
+    let count: Int
+    let next: String
+    let previous: String
+    let games: [Game]
+    
+    private enum CodingKeys: String, CodingKey {
+        case count, next, previous
+        case games = "results"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        count = (try? container.decode(Int.self, forKey: .count)) ?? 0
+        next = (try? container.decode(String.self, forKey: .next)) ?? ""
+        previous = (try? container.decode(String.self, forKey: .previous)) ?? ""
+        games = (try? container.decode([Game].self, forKey: .games)) ?? []
+    }
 }
 
 // MARK: - Game

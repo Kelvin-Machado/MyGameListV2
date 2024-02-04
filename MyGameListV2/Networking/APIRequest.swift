@@ -27,7 +27,7 @@ enum HTTPMethod: String {
 struct APIRequest<T: Decodable>: APIRequestable {
     let path: String
     let method: HTTPMethod
-    let parameters: [String: Any]?
+    var parameters: [String: Any]?
     let headers: [String: String]?
 
     init(path: String, method: HTTPMethod = .get, parameters: [String: Any]? = nil, headers: [String: String]? = nil) {
