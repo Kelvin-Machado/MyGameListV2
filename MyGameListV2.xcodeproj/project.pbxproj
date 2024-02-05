@@ -17,6 +17,7 @@
 		B63250142B700DDE00FE9E8A /* AddScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250132B700DDE00FE9E8A /* AddScreenViewController.swift */; };
 		B63250162B700E1F00FE9E8A /* AddScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250152B700E1F00FE9E8A /* AddScreenViewModel.swift */; };
 		B63250182B700F9900FE9E8A /* AddScreenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250172B700F9900FE9E8A /* AddScreenDataProvider.swift */; };
+		B632501E2B71637700FE9E8A /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632501D2B71637700FE9E8A /* GameCardView.swift */; };
 		B6B037FB2B445E800042C2E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FA2B445E800042C2E6 /* BaseViewController.swift */; };
 		B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FD2B4463D30042C2E6 /* Color.swift */; };
 		B6B038002B44648B0042C2E6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */; };
@@ -75,6 +76,7 @@
 		B63250132B700DDE00FE9E8A /* AddScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenViewController.swift; sourceTree = "<group>"; };
 		B63250152B700E1F00FE9E8A /* AddScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenViewModel.swift; sourceTree = "<group>"; };
 		B63250172B700F9900FE9E8A /* AddScreenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenDataProvider.swift; sourceTree = "<group>"; };
+		B632501D2B71637700FE9E8A /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameCardView.swift; path = MyGameListV2/DataProvider/GameCardView.swift; sourceTree = SOURCE_ROOT; };
 		B6B037FA2B445E800042C2E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B6B037FD2B4463D30042C2E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		B672C5222B3E0FF200F1D87D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B632501D2B71637700FE9E8A /* GameCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				B62143812B49E3330089721D /* APIClient.swift in Sources */,
 				B63250162B700E1F00FE9E8A /* AddScreenViewModel.swift in Sources */,
 				B63250142B700DDE00FE9E8A /* AddScreenViewController.swift in Sources */,
+				B632501E2B71637700FE9E8A /* GameCardView.swift in Sources */,
 				B6B372BC2B62934F00AEB155 /* UIView+Extension.swift in Sources */,
 				B6B038022B447F140042C2E6 /* CustomTabBarController.swift in Sources */,
 				B621437F2B49E2F50089721D /* APIRequest.swift in Sources */,
