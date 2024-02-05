@@ -76,7 +76,7 @@
 		B63250132B700DDE00FE9E8A /* AddScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenViewController.swift; sourceTree = "<group>"; };
 		B63250152B700E1F00FE9E8A /* AddScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenViewModel.swift; sourceTree = "<group>"; };
 		B63250172B700F9900FE9E8A /* AddScreenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenDataProvider.swift; sourceTree = "<group>"; };
-		B632501D2B71637700FE9E8A /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameCardView.swift; path = MyGameListV2/DataProvider/GameCardView.swift; sourceTree = SOURCE_ROOT; };
+		B632501D2B71637700FE9E8A /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameCardView.swift; path = MyGameListV2/View/GameCardView.swift; sourceTree = SOURCE_ROOT; };
 		B6B037FA2B445E800042C2E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B6B037FD2B4463D30042C2E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -182,6 +182,14 @@
 			path = AddScreen;
 			sourceTree = "<group>";
 		};
+		B66FA14A2B71658700FDA627 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B632501D2B71637700FE9E8A /* GameCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B672C51E2B3E020D00F1D87D /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,14 +228,6 @@
 				B62143852B4A04BF0089721D /* Game.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B672C5222B3E0FF200F1D87D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B632501D2B71637700FE9E8A /* GameCardView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		B672C5232B3E101800F1D87D /* Controller */ = {
@@ -347,7 +347,7 @@
 			children = (
 				B62143872B4A06550089721D /* DataProvider */,
 				B672C5212B3E0FE800F1D87D /* Model */,
-				B672C5222B3E0FF200F1D87D /* View */,
+				B66FA14A2B71658700FDA627 /* View */,
 				B672C5232B3E101800F1D87D /* Controller */,
 				B672C5202B3E0FB400F1D87D /* Extensions */,
 				B6ADCE082B491CF00011C8DC /* Networking */,
