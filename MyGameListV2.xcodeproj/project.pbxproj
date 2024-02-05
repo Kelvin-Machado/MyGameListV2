@@ -14,9 +14,9 @@
 		B62143892B4A066C0089721D /* SearchScreenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62143882B4A066C0089721D /* SearchScreenDataProvider.swift */; };
 		B621438B2B4B63290089721D /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621438A2B4B63290089721D /* Decodable+Extension.swift */; };
 		B624B5AA2B52E89600DE3F9C /* ConfigAPI.plist in Resources */ = {isa = PBXBuildFile; fileRef = B624B5A92B52E89600DE3F9C /* ConfigAPI.plist */; };
-		B63250142B700DDE00FE9E8A /* AddScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250132B700DDE00FE9E8A /* AddScreenViewController.swift */; };
-		B63250162B700E1F00FE9E8A /* AddScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250152B700E1F00FE9E8A /* AddScreenViewModel.swift */; };
-		B63250182B700F9900FE9E8A /* AddScreenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250172B700F9900FE9E8A /* AddScreenDataProvider.swift */; };
+		B63250142B700DDE00FE9E8A /* AddSearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250132B700DDE00FE9E8A /* AddSearchScreenViewController.swift */; };
+		B63250162B700E1F00FE9E8A /* AddSearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */; };
+		B63250182B700F9900FE9E8A /* AddSearchScreenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250172B700F9900FE9E8A /* AddSearchScreenDataProvider.swift */; };
 		B632501E2B71637700FE9E8A /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632501D2B71637700FE9E8A /* GameCardView.swift */; };
 		B6B037FB2B445E800042C2E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FA2B445E800042C2E6 /* BaseViewController.swift */; };
 		B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FD2B4463D30042C2E6 /* Color.swift */; };
@@ -73,9 +73,9 @@
 		B62143882B4A066C0089721D /* SearchScreenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenDataProvider.swift; sourceTree = "<group>"; };
 		B621438A2B4B63290089721D /* Decodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
 		B624B5A92B52E89600DE3F9C /* ConfigAPI.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ConfigAPI.plist; sourceTree = "<group>"; };
-		B63250132B700DDE00FE9E8A /* AddScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenViewController.swift; sourceTree = "<group>"; };
-		B63250152B700E1F00FE9E8A /* AddScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenViewModel.swift; sourceTree = "<group>"; };
-		B63250172B700F9900FE9E8A /* AddScreenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenDataProvider.swift; sourceTree = "<group>"; };
+		B63250132B700DDE00FE9E8A /* AddSearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchScreenViewController.swift; sourceTree = "<group>"; };
+		B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchScreenViewModel.swift; sourceTree = "<group>"; };
+		B63250172B700F9900FE9E8A /* AddSearchScreenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchScreenDataProvider.swift; sourceTree = "<group>"; };
 		B632501D2B71637700FE9E8A /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameCardView.swift; path = MyGameListV2/View/GameCardView.swift; sourceTree = SOURCE_ROOT; };
 		B6B037FA2B445E800042C2E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B6B037FD2B4463D30042C2E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -168,18 +168,18 @@
 			isa = PBXGroup;
 			children = (
 				B62143882B4A066C0089721D /* SearchScreenDataProvider.swift */,
-				B63250172B700F9900FE9E8A /* AddScreenDataProvider.swift */,
+				B63250172B700F9900FE9E8A /* AddSearchScreenDataProvider.swift */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
 		};
-		B63250122B700CEC00FE9E8A /* AddScreen */ = {
+		B63250122B700CEC00FE9E8A /* AddSearchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				B63250132B700DDE00FE9E8A /* AddScreenViewController.swift */,
-				B63250152B700E1F00FE9E8A /* AddScreenViewModel.swift */,
+				B63250132B700DDE00FE9E8A /* AddSearchScreenViewController.swift */,
+				B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */,
 			);
-			path = AddScreen;
+			path = AddSearchScreen;
 			sourceTree = "<group>";
 		};
 		B66FA14A2B71658700FDA627 /* View */ = {
@@ -233,7 +233,7 @@
 		B672C5232B3E101800F1D87D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B63250122B700CEC00FE9E8A /* AddScreen */,
+				B63250122B700CEC00FE9E8A /* AddSearchScreen */,
 				B6B037F92B445E480042C2E6 /* Base */,
 				B6B038032B4486E60042C2E6 /* CustomControllers */,
 				B672C5252B3E10D600F1D87D /* Home */,
@@ -615,8 +615,8 @@
 			files = (
 				B6D8A2282B4625EC00C9DD4B /* SearchScreenViewModel.swift in Sources */,
 				B62143812B49E3330089721D /* APIClient.swift in Sources */,
-				B63250162B700E1F00FE9E8A /* AddScreenViewModel.swift in Sources */,
-				B63250142B700DDE00FE9E8A /* AddScreenViewController.swift in Sources */,
+				B63250162B700E1F00FE9E8A /* AddSearchScreenViewModel.swift in Sources */,
+				B63250142B700DDE00FE9E8A /* AddSearchScreenViewController.swift in Sources */,
 				B632501E2B71637700FE9E8A /* GameCardView.swift in Sources */,
 				B6B372BC2B62934F00AEB155 /* UIView+Extension.swift in Sources */,
 				B6B038022B447F140042C2E6 /* CustomTabBarController.swift in Sources */,
@@ -632,7 +632,7 @@
 				B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */,
 				B6F5C6FF2B31E15D00F58648 /* AppDelegate.swift in Sources */,
 				B6B95AC22B40616C009110FB /* TabViewController.swift in Sources */,
-				B63250182B700F9900FE9E8A /* AddScreenDataProvider.swift in Sources */,
+				B63250182B700F9900FE9E8A /* AddSearchScreenDataProvider.swift in Sources */,
 				B6F5C7012B31E15D00F58648 /* SceneDelegate.swift in Sources */,
 				B6B037FB2B445E800042C2E6 /* BaseViewController.swift in Sources */,
 				B6B038002B44648B0042C2E6 /* UIColor+Extension.swift in Sources */,

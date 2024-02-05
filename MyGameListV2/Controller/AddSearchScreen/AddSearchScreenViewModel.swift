@@ -1,5 +1,5 @@
 //
-//  AddScreenViewModel.swift
+//  AddSearchScreenViewModel.swift
 //  MyGameListV2
 //
 //  Created by Kelvin Batista Machado on 04/02/24.
@@ -8,13 +8,13 @@
 import Foundation
 import RxSwift
 
-class AddScreenViewModel {
-    private let dataProvider: AddScreenDataProviderProtocol
+class AddSearchScreenViewModel {
+    private let dataProvider: AddSearchScreenDataProviderProtocol
     private let disposeBag = DisposeBag()
 
     let searchResults: PublishSubject<Result<Game, Error>> = PublishSubject()
 
-    init(dataProvider: AddScreenDataProviderProtocol = AddScreenDataProvider()) {
+    init(dataProvider: AddSearchScreenDataProviderProtocol = AddSearchScreenDataProvider()) {
         self.dataProvider = dataProvider
     }
 

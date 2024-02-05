@@ -1,5 +1,5 @@
 //
-//  AddScreenDataProvider.swift
+//  AddSearchScreenDataProvider.swift
 //  MyGameListV2
 //
 //  Created by Kelvin Batista Machado on 04/02/24.
@@ -8,11 +8,11 @@
 import Foundation
 import RxSwift
 
-protocol AddScreenDataProviderProtocol {
+protocol AddSearchScreenDataProviderProtocol {
     func searchGames(withName name: String) -> Observable<Result<Game, Error>>
    }
 
-class AddScreenDataProvider: AddScreenDataProviderProtocol {
+class AddSearchScreenDataProvider: AddSearchScreenDataProviderProtocol {
     func searchGames(withName name: String) -> Observable<Result<Game, Error>> {
         let request = APIRequest<Game>(path: "games/\(name)")
         return APIClient.shared.send(request)

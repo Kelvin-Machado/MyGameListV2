@@ -1,5 +1,5 @@
 //
-//  AddScreenViewController.swift
+//  AddSearchScreenViewController.swift
 //  MyGameListV2
 //
 //  Created by Kelvin Batista Machado on 04/02/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddScreenViewController: BaseViewController {
+class AddSearchScreenViewController: BaseViewController {
     
     //MARK: - properties
     let searchBar = UISearchController()
@@ -15,7 +15,7 @@ class AddScreenViewController: BaseViewController {
     var searchedGame: Game? = nil
     var isLoad: Bool = false
     
-    let viewModel: AddScreenViewModel
+    let viewModel: AddSearchScreenViewModel
 
     
     //MARK: - views
@@ -28,7 +28,7 @@ class AddScreenViewController: BaseViewController {
     }()
     
     //MARK: - setup
-    init(viewModel: AddScreenViewModel = AddScreenViewModel()) {
+    init(viewModel: AddSearchScreenViewModel = AddSearchScreenViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -119,7 +119,7 @@ class AddScreenViewController: BaseViewController {
     }
 }
 
-extension AddScreenViewController: UISearchBarDelegate {
+extension AddSearchScreenViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
             searchingGame = ""
@@ -130,7 +130,7 @@ extension AddScreenViewController: UISearchBarDelegate {
     }
 }
 
-extension AddScreenViewController: UITableViewDelegate, UITableViewDataSource {
+extension AddSearchScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return isLoad ? 1 : (!isLoad && searchingGame.isEmpty ? 0 : 1)
     }
