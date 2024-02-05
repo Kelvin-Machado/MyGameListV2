@@ -18,6 +18,7 @@
 		B63250162B700E1F00FE9E8A /* AddSearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */; };
 		B63250182B700F9900FE9E8A /* AddSearchScreenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250172B700F9900FE9E8A /* AddSearchScreenDataProvider.swift */; };
 		B632501E2B71637700FE9E8A /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632501D2B71637700FE9E8A /* GameCardView.swift */; };
+		B66FA14D2B719CE800FDA627 /* AddSearchResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66FA14C2B719CE800FDA627 /* AddSearchResultViewCell.swift */; };
 		B6B037FB2B445E800042C2E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FA2B445E800042C2E6 /* BaseViewController.swift */; };
 		B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FD2B4463D30042C2E6 /* Color.swift */; };
 		B6B038002B44648B0042C2E6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */; };
@@ -77,6 +78,7 @@
 		B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchScreenViewModel.swift; sourceTree = "<group>"; };
 		B63250172B700F9900FE9E8A /* AddSearchScreenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchScreenDataProvider.swift; sourceTree = "<group>"; };
 		B632501D2B71637700FE9E8A /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameCardView.swift; path = MyGameListV2/View/GameCardView.swift; sourceTree = SOURCE_ROOT; };
+		B66FA14C2B719CE800FDA627 /* AddSearchResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchResultViewCell.swift; sourceTree = "<group>"; };
 		B6B037FA2B445E800042C2E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B6B037FD2B4463D30042C2E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		B63250122B700CEC00FE9E8A /* AddSearchScreen */ = {
 			isa = PBXGroup;
 			children = (
+				B66FA14B2B719CCA00FDA627 /* Cell */,
 				B63250132B700DDE00FE9E8A /* AddSearchScreenViewController.swift */,
 				B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */,
 			);
@@ -188,6 +191,14 @@
 				B632501D2B71637700FE9E8A /* GameCardView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B66FA14B2B719CCA00FDA627 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B66FA14C2B719CE800FDA627 /* AddSearchResultViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B672C51E2B3E020D00F1D87D /* SupportingFiles */ = {
@@ -614,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6D8A2282B4625EC00C9DD4B /* SearchScreenViewModel.swift in Sources */,
+				B66FA14D2B719CE800FDA627 /* AddSearchResultViewCell.swift in Sources */,
 				B62143812B49E3330089721D /* APIClient.swift in Sources */,
 				B63250162B700E1F00FE9E8A /* AddSearchScreenViewModel.swift in Sources */,
 				B63250142B700DDE00FE9E8A /* AddSearchScreenViewController.swift in Sources */,

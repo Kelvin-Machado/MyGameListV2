@@ -95,7 +95,7 @@ class AddSearchScreenViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(SearchResultViewCell.self, forCellReuseIdentifier: "GameCell")
+        tableView.register(AddSearchResultViewCell.self, forCellReuseIdentifier: "GameCell")
         view.addSubview(tableView)
 
         NSLayoutConstraint.activate([
@@ -136,7 +136,7 @@ extension AddSearchScreenViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? SearchResultViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? AddSearchResultViewCell else {
             return UITableViewCell()
         }
         if isLoad, searchedGame != nil {
@@ -150,7 +150,7 @@ extension AddSearchScreenViewController: UITableViewDelegate, UITableViewDataSou
     
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let resultCell = cell as? SearchResultViewCell {
+        if let resultCell = cell as? AddSearchResultViewCell {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 resultCell.containerView.isShimmering = !self.isLoad
             }
