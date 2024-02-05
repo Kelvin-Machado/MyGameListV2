@@ -44,6 +44,12 @@ class AddSearchResultViewCell: UITableViewCell {
         backgroundColor = Color.clear
         setupUI()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        gameCardView.reset()
+        descriptionTextView.text = ""
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

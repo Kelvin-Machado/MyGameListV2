@@ -59,6 +59,11 @@ class SearchResultViewCell: UITableViewCell {
         ])
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        gameCardView.reset()
+    }
+    
     func configure(with game: Game?, isLoad: Bool) {
         gameCardView.configure(with: game)
     }

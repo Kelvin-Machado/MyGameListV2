@@ -84,5 +84,10 @@ class GameCardView: UIView {
             }
         }.resume()
     }
+    
+    func reset() {
+        nameLabel.text = nil
+        gameImageView.image = nil
+    }
 }
 
