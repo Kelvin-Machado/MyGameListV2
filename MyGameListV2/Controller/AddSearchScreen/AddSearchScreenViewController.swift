@@ -160,5 +160,7 @@ extension AddSearchScreenViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let searchedGame = searchedGame else { return }
         print(searchedGame.name)
+        let addScreenVC = AddScreenViewController(game: searchedGame)
+        present(addScreenVC, animated: true, completion: nil)
     }
 }
