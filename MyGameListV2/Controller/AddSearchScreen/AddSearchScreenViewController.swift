@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol AddSearchScreenDelegate: AnyObject {
+    func didSelectGame(_ game: Game)
+}
+
+
 class AddSearchScreenViewController: BaseViewController {
     
     //MARK: - properties
@@ -14,6 +19,8 @@ class AddSearchScreenViewController: BaseViewController {
     var searchingGame = ""
     var searchedGame: Game? = nil
     var isLoad: Bool = false
+
+    weak var delegate: AddSearchScreenDelegate?
     
     let viewModel: AddSearchScreenViewModel
 
@@ -43,6 +50,7 @@ class AddSearchScreenViewController: BaseViewController {
         configuraSearchBar()
         configureTableView()
         bindViewModel()
+        searchGames()
     }
     
     func bindViewModel() {
@@ -51,8 +59,6 @@ class AddSearchScreenViewController: BaseViewController {
                 self?.isLoad = true
                 switch result {
                 case .success(let game):
-                    print("Game Name: \(game.name)")
-                    print("Slug: \(game.slug)")
                     if let redirect = game.redirect, redirect {
                         self?.searchingGame = game.slug
                         self?.viewModel.searchGames(withName: game.slug)
@@ -160,7 +166,12 @@ extension AddSearchScreenViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let searchedGame = searchedGame else { return }
         print(searchedGame.name)
-        let addScreenVC = AddScreenViewController(game: searchedGame)
-        present(addScreenVC, animated: true, completion: nil)
+        if delegate != nil {
+            dismiss(animated: true)
+            delegate?.didSelectGame(searchedGame)
+        } else {
+            let addScreenVC = AddScreenViewController(game: searchedGame)
+            present(addScreenVC, animated: true, completion: nil)
+        }
     }
 }

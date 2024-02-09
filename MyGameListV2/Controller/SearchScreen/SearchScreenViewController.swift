@@ -156,6 +156,19 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         guard !searchedGames.isEmpty else {return}
         let searchedGame: Game = searchedGames[indexPath.row]
         print(searchedGame.name)
+        let addSearchScreenVC = AddSearchScreenViewController(viewModel: AddSearchScreenViewModel())
+        addSearchScreenVC.searchingGame = searchedGame.slug
+        addSearchScreenVC.searchedGame = searchedGame
+        addSearchScreenVC.delegate = self
+        self.present(addSearchScreenVC, animated: true, completion: nil)
+    }
+}
+
+extension SearchScreenViewController: AddSearchScreenDelegate {
+    func didSelectGame(_ game: Game) {
+        print(game.name)
+        let addScreenVC = AddScreenViewController(game: game)
+        present(addScreenVC, animated: true, completion: nil)
     }
 }
 
