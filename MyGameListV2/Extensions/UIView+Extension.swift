@@ -58,3 +58,59 @@ extension UIView {
         layer.mask = nil
     }
 }
+
+extension UIView {
+    @discardableResult
+    func top(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Self {
+        topAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        return self
+    }
+    
+    @discardableResult
+    func leading(to anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Self {
+        leadingAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        return self
+    }
+    
+    @discardableResult
+    func trailing(to anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Self {
+        trailingAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        return self
+    }
+    
+    @discardableResult
+    func bottom(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Self {
+        bottomAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        return self
+    }
+    
+    @discardableResult
+    func width(equalTo constant: CGFloat) -> Self {
+        widthAnchor.constraint(equalToConstant: constant).isActive = true
+        return self
+    }
+    
+    @discardableResult
+    func height(equalTo constant: CGFloat) -> Self {
+        heightAnchor.constraint(equalToConstant: constant).isActive = true
+        return self
+    }
+    
+    @discardableResult
+    func height(equalTo anchor: NSLayoutDimension, multiplier: CGFloat) -> Self {
+        heightAnchor.constraint(equalTo: anchor, multiplier: multiplier).isActive = true
+        return self
+    }
+    
+    @discardableResult
+    func centerX(to anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Self {
+        centerXAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        return self
+    }
+    
+    @discardableResult
+    func centerY(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Self {
+        centerYAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        return self
+    }
+}

@@ -34,6 +34,7 @@ class AddSearchResultViewCell: UITableViewCell {
         textView.layer.masksToBounds = true
         textView.isScrollEnabled = false
         textView.isEditable = false
+        textView.isUserInteractionEnabled = false
         textView.textContainerInset = .init(top: 8, left: 8, bottom: 8, right: 8)
         textView.textContainer.lineFragmentPadding = 0
         return textView
@@ -67,22 +68,24 @@ class AddSearchResultViewCell: UITableViewCell {
         contentView.layer.shouldRasterize = true
         contentView.layer.rasterizationScale = UIScreen.main.scale
         contentView.layer.masksToBounds = false
-
-        NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-
-            gameCardView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            gameCardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            gameCardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-
-            descriptionTextView.topAnchor.constraint(equalTo: gameCardView.bottomAnchor, constant: 8),
-            descriptionTextView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            descriptionTextView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            descriptionTextView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16)
-        ])
+        
+        containerView
+            .top(to: contentView.topAnchor, constant: 16)
+            .leading(to: contentView.leadingAnchor, constant: 32)
+            .trailing(to: contentView.trailingAnchor, constant: -32)
+            .bottom(to: contentView.bottomAnchor, constant: -16)
+        
+        gameCardView
+            .top(to: containerView.topAnchor)
+            .leading(to: containerView.leadingAnchor)
+            .trailing(to: containerView.trailingAnchor)
+        
+        descriptionTextView
+            .top(to:  gameCardView.bottomAnchor, constant: 8)
+            .leading(to: containerView.leadingAnchor, constant: 16)
+            .trailing(to: containerView.trailingAnchor, constant: -16)
+            .bottom(to: containerView.bottomAnchor, constant: -16)
+        
     }
 
     override func layoutSubviews() {

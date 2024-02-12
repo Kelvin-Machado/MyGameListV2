@@ -46,17 +46,17 @@ class SearchResultViewCell: UITableViewCell {
         contentView.layer.rasterizationScale = UIScreen.main.scale
         contentView.layer.masksToBounds = false
 
-        NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+        containerView
+            .top(to: contentView.topAnchor, constant: 16)
+            .leading(to: contentView.leadingAnchor, constant: 32)
+            .trailing(to: contentView.trailingAnchor, constant: -32)
+            .bottom(to: contentView.bottomAnchor, constant: -16)
 
-            gameCardView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            gameCardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            gameCardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            gameCardView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-        ])
+        gameCardView
+            .top(to: containerView.topAnchor)
+            .leading(to: containerView.leadingAnchor)
+            .trailing(to: containerView.trailingAnchor)
+            .bottom(to: containerView.bottomAnchor)
     }
 
     override func prepareForReuse() {

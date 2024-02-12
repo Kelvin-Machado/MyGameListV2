@@ -89,30 +89,33 @@ class ErrorPopupViewController: UIViewController {
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
         closeButton.translatesAutoresizingMaskIntoConstraints = false
 
-        NSLayoutConstraint.activate([
-            containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            containerView.widthAnchor.constraint(equalToConstant: 300),
+        containerView
+            .centerX(to: view.centerXAnchor)
+            .centerY(to: view.centerYAnchor)
+            .width(equalTo: 300)
 
-            headerView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 40),
+        headerView
+            .top(to: containerView.topAnchor)
+            .leading(to: containerView.leadingAnchor)
+            .trailing(to: containerView.trailingAnchor)
+            .height(equalTo: 40)
 
-            titleLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20),
+        titleLabel
+            .centerY(to: headerView.centerYAnchor)
+            .leading(to: headerView.leadingAnchor, constant: 20)
+            .trailing(to: headerView.trailingAnchor, constant: -20)
 
-            errorLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10),
-            errorLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            errorLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
-            errorLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40),
+        errorLabel
+            .top(to: headerView.bottomAnchor, constant: 10)
+            .leading(to: containerView.leadingAnchor, constant: 20)
+            .trailing(to: containerView.trailingAnchor, constant: -20)
+            .bottom(to: containerView.bottomAnchor, constant: -40)
 
-            closeButton.topAnchor.constraint(equalTo: containerView.topAnchor),
-            closeButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            closeButton.widthAnchor.constraint(equalToConstant: 40),
-            closeButton.heightAnchor.constraint(equalToConstant: 40)
-        ])
+        closeButton
+            .top(to: containerView.topAnchor)
+            .trailing(to: containerView.trailingAnchor)
+            .width(equalTo: 40)
+            .height(equalTo: 40)
     }
 
     private func displayError() {

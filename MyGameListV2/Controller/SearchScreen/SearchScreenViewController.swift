@@ -90,13 +90,12 @@ class SearchScreenViewController: BaseViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(SearchResultViewCell.self, forCellReuseIdentifier: "GameCell")
         view.addSubview(tableView)
-
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        
+        tableView
+            .top(to: view.topAnchor)
+            .leading(to: view.leadingAnchor)
+            .trailing(to: view.trailingAnchor)
+            .bottom(to: view.bottomAnchor)
     }
 
     private func searchGames() {

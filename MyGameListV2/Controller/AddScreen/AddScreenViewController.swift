@@ -16,6 +16,8 @@ class AddScreenViewController: BaseViewController {
     private let gameImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         //TODO: adicionar imagem placeholder
         return imageView
     }()
@@ -23,7 +25,7 @@ class AddScreenViewController: BaseViewController {
     private let dividerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Color.whiteSmoke
+        view.backgroundColor = Color.dimGray
         return view
     }()
     
@@ -38,14 +40,12 @@ class AddScreenViewController: BaseViewController {
     private let ratingView: RatingView = {
         let ratingView = RatingView()
         ratingView.translatesAutoresizingMaskIntoConstraints = false
-        // Configure rating view properties as needed
         return ratingView
     }()
     
     private let platformsDropDown: DropDown = {
         let dropDown = DropDown()
         dropDown.translatesAutoresizingMaskIntoConstraints = false
-        // Configure dropdown properties as needed
         return dropDown
     }()
     
@@ -99,35 +99,38 @@ class AddScreenViewController: BaseViewController {
         view.addSubview(newButton)
         view.addSubview(addButton)
         
-        NSLayoutConstraint.activate([
-            gameImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            gameImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            gameImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            gameImageView.heightAnchor.constraint(equalTo: gameImageView.widthAnchor, multiplier: 475.0/844.0),
-            
-            dividerView.topAnchor.constraint(equalTo: gameImageView.bottomAnchor),
-            dividerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            dividerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            dividerView.heightAnchor.constraint(equalToConstant: 1),
-            
-            nameLabel.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 16),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
-            ratingView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16),
-            ratingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            ratingView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
-            platformsDropDown.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 16),
-            platformsDropDown.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            platformsDropDown.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
-            newButton.topAnchor.constraint(equalTo: platformsDropDown.bottomAnchor, constant: 16),
-            newButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
-        ])
+        gameImageView
+            .top(to: view.safeAreaLayoutGuide.topAnchor)
+            .leading(to: view.leadingAnchor)
+            .trailing(to: view.trailingAnchor)
+            .height(equalTo: gameImageView.widthAnchor, multiplier: 475.0/844.0)
+        
+        dividerView
+            .top(to: gameImageView.bottomAnchor)
+            .leading(to: view.leadingAnchor)
+            .trailing(to: view.trailingAnchor)
+            .height(equalTo: 2)
+        
+        nameLabel
+            .top(to: dividerView.bottomAnchor, constant: 16)
+            .leading(to: view.leadingAnchor, constant: 16)
+            .trailing(to: view.trailingAnchor, constant: -16)
+        
+        ratingView
+            .top(to: nameLabel.bottomAnchor, constant: 16)
+            .trailing(to:view.trailingAnchor, constant: -16)
+        
+        platformsDropDown
+            .top(to: ratingView.bottomAnchor, constant: 16)
+            .leading(to: view.leadingAnchor, constant: 16)
+        
+        newButton
+            .top(to: platformsDropDown.bottomAnchor, constant: 16)
+            .leading(to: view.leadingAnchor, constant: 16)
+        
+        addButton
+            .trailing(to: view.trailingAnchor, constant: -16)
+            .bottom(to: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
     }
     
     private func loadImage(from urlString: String) {

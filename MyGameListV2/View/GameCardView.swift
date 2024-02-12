@@ -12,6 +12,8 @@ class GameCardView: UIView {
     private let gameImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -43,22 +45,23 @@ class GameCardView: UIView {
         addSubview(dividerView)
         addSubview(nameLabel)
         
-        NSLayoutConstraint.activate([
-            gameImageView.topAnchor.constraint(equalTo: topAnchor),
-            gameImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            gameImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            gameImageView.widthAnchor.constraint(equalTo: gameImageView.heightAnchor, multiplier: 844.0 / 475.0),
-            
-            dividerView.topAnchor.constraint(equalTo: gameImageView.bottomAnchor),
-            dividerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dividerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            dividerView.heightAnchor.constraint(equalToConstant: 2),
-            
-            nameLabel.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 3),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
-        ])
+        gameImageView
+            .top(to: topAnchor)
+            .leading(to: leadingAnchor)
+            .trailing(to: trailingAnchor)
+            .height(equalTo: gameImageView.widthAnchor, multiplier: 475.0/844.0)
+        
+        dividerView
+            .top(to: gameImageView.bottomAnchor)
+            .leading(to: leadingAnchor)
+            .trailing(to: trailingAnchor)
+            .height(equalTo: 2)
+        
+        nameLabel
+            .top(to: dividerView.bottomAnchor, constant: 16)
+            .leading(to: leadingAnchor, constant: 16)
+            .trailing(to: trailingAnchor, constant: -16)
+            .bottom(to: bottomAnchor, constant: -16)
     }
     
     func configure(with game: Game?) {
