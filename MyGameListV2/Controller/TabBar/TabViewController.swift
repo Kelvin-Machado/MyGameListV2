@@ -24,20 +24,22 @@ class TabViewController: CustomTabBarController {
     
     // MARK: - Tab Setup
     private func setupTabs() {
-        let home = createNav(with: "home", and: UIImage(systemName: "house"), vc: HomeViewController())
-        let search = createNav(with: "search", and: UIImage(systemName: "magnifyingglass"), vc: SearchScreenViewController(viewModel: SearchScreenViewModel(dataProvider: SearchScreenDataProvider())))
-        let add = createNav(with: "add a game", and: UIImage(systemName: "plus.circle"), vc: AddSearchScreenViewController())
-        let list = createNav(with: "MyGameList", and: UIImage(systemName: "list.star"), vc: HomeViewController())
-        let profile = createNav(with: "profile", and: UIImage(systemName: "person"), vc: HomeViewController())
-        
-        
+        let home = createNav(with: "home", and: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"), vc: HomeViewController())
+        let search = createNav(with: "search", and: UIImage(systemName: "magnifyingglass"), selectedImage: nil, vc: SearchScreenViewController(viewModel: SearchScreenViewModel(dataProvider: SearchScreenDataProvider())))
+        let add = createNav(with: "add a game", and: UIImage(systemName: "plus.circle"), selectedImage: UIImage(systemName: "plus.circle.fill"), vc: AddSearchScreenViewController())
+        let list = createNav(with: "MyGameList", and: UIImage(systemName: "list.bullet.rectangle"), selectedImage: UIImage(systemName: "list.bullet.rectangle.fill"), vc: HomeViewController())
+        let profile = createNav(with: "profile", and: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"), vc: HomeViewController())
+
         self.setViewControllers([home, search, add, list, profile], animated: true)
     }
     
-    private func createNav(with title: String, and image: UIImage?, vc: UIViewController) -> UINavigationController {
+    private func createNav(with title: String, and image: UIImage?, selectedImage: UIImage?, vc: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: vc)
 //        nav.tabBarItem.title = title
         nav.tabBarItem.image = image
+        if selectedImage != nil {
+            nav.tabBarItem.selectedImage = selectedImage
+        }
         nav.viewControllers.first?.navigationItem.title = title
         
         return nav
