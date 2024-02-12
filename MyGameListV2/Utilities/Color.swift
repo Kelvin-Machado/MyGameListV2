@@ -24,6 +24,9 @@ struct Color {
     static var buttonText = UIColor(hexString: "FFFFFF")
     
     //outras cores
+    
+    static var goldenYellow = UIColor(hexString: "FFDF00")
+    
     static var lightCyan = UIColor(hexString: "E0FFFF")
     static var steelBlue = UIColor(hexString: "4682B4")
     static var lightSteelBlue = UIColor(hexString: "B0C4DE")

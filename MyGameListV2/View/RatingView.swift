@@ -13,8 +13,16 @@ class RatingView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 4
+        stackView.spacing = 2
         return stackView
+    }()
+    
+    private let ratingLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = Color.black
+        return label
     }()
     
     private var starViews: [UIImageView] = []
@@ -30,19 +38,26 @@ class RatingView: UIView {
     
     private func setupUI() {
         addSubview(starsStackView)
+        addSubview(ratingLabel)
         
         NSLayoutConstraint.activate([
             starsStackView.topAnchor.constraint(equalTo: topAnchor),
             starsStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            starsStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             starsStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            ratingLabel.topAnchor.constraint(equalTo: topAnchor),
+            ratingLabel.leadingAnchor.constraint(equalTo: starsStackView.trailingAnchor, constant: 6),
+            ratingLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            ratingLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         for _ in 0..<5 {
             let starImageView = UIImageView()
             starImageView.translatesAutoresizingMaskIntoConstraints = false
             starImageView.image = UIImage(systemName: "star.fill")
-            starImageView.tintColor = UIColor.orange
+            starImageView.tintColor = Color.goldenYellow
             starImageView.contentMode = .scaleAspectFit
             starViews.append(starImageView)
             starsStackView.addArrangedSubview(starImageView)
@@ -51,15 +66,20 @@ class RatingView: UIView {
     
     func setRating(rating: Double, maxRating: Double) {
         let normalizedRating = min(max(rating, 0), maxRating)
-        let filledStars = Int((normalizedRating / maxRating) * 5)
+        let filledStars = Int(round((normalizedRating / maxRating) * 5))
         
         for (index, starView) in starViews.enumerated() {
             if index < filledStars {
-                starView.isHidden = false
+                if index == filledStars - 1 && (normalizedRating.truncatingRemainder(dividingBy: 1) >= 0.3 && normalizedRating.truncatingRemainder(dividingBy: 1) <= 0.7) {
+                    starView.image = UIImage(systemName: "star.leadinghalf.fill")
+                } else {
+                    starView.image = UIImage(systemName: "star.fill")
+                }
             } else {
-                starView.isHidden = true
+                starView.image = UIImage(systemName: "star")
             }
         }
+        
+        ratingLabel.text = String(format: "%.1f", rating)
     }
 }
-
