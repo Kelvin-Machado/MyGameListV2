@@ -70,7 +70,7 @@ class RatingView: UIView {
         
         for (index, starView) in starViews.enumerated() {
             if index < filledStars {
-                if index == filledStars - 1 && (normalizedRating.truncatingRemainder(dividingBy: 1) >= 0.3 && normalizedRating.truncatingRemainder(dividingBy: 1) <= 0.7) {
+                if index == filledStars - 1 && (normalizedRating.truncatingRemainder(dividingBy: 1) > 0.3 && normalizedRating.truncatingRemainder(dividingBy: 1) < 0.7) {
                     starView.image = UIImage(systemName: "star.leadinghalf.fill")
                 } else {
                     starView.image = UIImage(systemName: "star.fill")
@@ -80,6 +80,6 @@ class RatingView: UIView {
             }
         }
         
-        ratingLabel.text = String(format: "%.1f", rating)
+        ratingLabel.text = String(format: "%.2f", rating)
     }
 }
