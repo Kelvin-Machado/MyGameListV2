@@ -13,20 +13,10 @@ class AddScreenViewController: BaseViewController {
     
     let game: Game
     
-    private let gameImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        //TODO: adicionar imagem placeholder
-        return imageView
-    }()
-    
-    private let dividerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Color.dimGray
-        return view
+    private let carouselView: CarouselView = {
+        let carouselView = CarouselView()
+        carouselView.translatesAutoresizingMaskIntoConstraints = false
+        return carouselView
     }()
     
     private let nameLabel: UILabel = {
@@ -79,7 +69,7 @@ class AddScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadImage(from: game.backgroundImage ?? "")
+        configureCarouselView()
         configureLabels()
         configureRatingView()
         configureDropDown()
@@ -91,28 +81,21 @@ class AddScreenViewController: BaseViewController {
     private func setupUI() {
         view.backgroundColor = Color.background
         
-        view.addSubview(gameImageView)
-        view.addSubview(dividerView)
+        view.addSubview(carouselView)
         view.addSubview(nameLabel)
         view.addSubview(ratingView)
         view.addSubview(platformsDropDown)
         view.addSubview(newButton)
         view.addSubview(addButton)
         
-        gameImageView
+        carouselView
             .top(to: view.safeAreaLayoutGuide.topAnchor)
             .leading(to: view.leadingAnchor)
             .trailing(to: view.trailingAnchor)
-            .height(equalTo: gameImageView.widthAnchor, multiplier: 475.0/844.0)
-        
-        dividerView
-            .top(to: gameImageView.bottomAnchor)
-            .leading(to: view.leadingAnchor)
-            .trailing(to: view.trailingAnchor)
-            .height(equalTo: 2)
+            .height(equalTo: carouselView.widthAnchor, multiplier: 475.0/844.0)
         
         nameLabel
-            .top(to: dividerView.bottomAnchor, constant: 16)
+            .top(to: carouselView.bottomAnchor, constant: 16)
             .leading(to: view.leadingAnchor, constant: 16)
             .trailing(to: view.trailingAnchor, constant: -16)
         
@@ -133,24 +116,11 @@ class AddScreenViewController: BaseViewController {
             .bottom(to: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
     }
     
-    private func loadImage(from urlString: String) {
-        guard let url = URL(string: urlString) else {
-            // TODO: Handle invalid URL
-            return
+    private func configureCarouselView() {
+        if let imageUrl = game.backgroundImage {
+            carouselView.configure(with: [imageUrl])
         }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Error downloading image: \(error.localizedDescription)")
-                return
-            }
-            
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.gameImageView.image = image
-                }
-            }
-        }.resume()
+    //TODO: - Adicionar carregamento de outras imagens além do background principal
     }
     
     private func configureLabels() {
@@ -179,4 +149,3 @@ class AddScreenViewController: BaseViewController {
         //TODO: adicionar ação para o clique no botão de adicionar jogo na lista
     }
 }
-

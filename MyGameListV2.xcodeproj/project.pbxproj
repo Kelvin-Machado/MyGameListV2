@@ -18,6 +18,7 @@
 		B63250162B700E1F00FE9E8A /* AddSearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */; };
 		B63250182B700F9900FE9E8A /* AddSearchScreenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250172B700F9900FE9E8A /* AddSearchScreenDataProvider.swift */; };
 		B632501E2B71637700FE9E8A /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632501D2B71637700FE9E8A /* GameCardView.swift */; };
+		B6504CCD2B80262700B59EAC /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6504CCC2B80262700B59EAC /* CarouselView.swift */; };
 		B66FA14D2B719CE800FDA627 /* AddSearchResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66FA14C2B719CE800FDA627 /* AddSearchResultViewCell.swift */; };
 		B66FA1502B72703600FDA627 /* AddScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66FA14F2B72703600FDA627 /* AddScreenViewController.swift */; };
 		B66FA1522B72B89500FDA627 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66FA1512B72B89500FDA627 /* RatingView.swift */; };
@@ -81,6 +82,7 @@
 		B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchScreenViewModel.swift; sourceTree = "<group>"; };
 		B63250172B700F9900FE9E8A /* AddSearchScreenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchScreenDataProvider.swift; sourceTree = "<group>"; };
 		B632501D2B71637700FE9E8A /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameCardView.swift; path = MyGameListV2/View/GameCardView.swift; sourceTree = SOURCE_ROOT; };
+		B6504CCC2B80262700B59EAC /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		B66FA14C2B719CE800FDA627 /* AddSearchResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchResultViewCell.swift; sourceTree = "<group>"; };
 		B66FA14F2B72703600FDA627 /* AddScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenViewController.swift; sourceTree = "<group>"; };
 		B66FA1512B72B89500FDA627 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
@@ -194,9 +196,10 @@
 		B66FA14A2B71658700FDA627 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B6504CCC2B80262700B59EAC /* CarouselView.swift */,
+				B66FA1532B72B8C600FDA627 /* DropDown.swift */,
 				B632501D2B71637700FE9E8A /* GameCardView.swift */,
 				B66FA1512B72B89500FDA627 /* RatingView.swift */,
-				B66FA1532B72B8C600FDA627 /* DropDown.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6D8A2282B4625EC00C9DD4B /* SearchScreenViewModel.swift in Sources */,
+				B6504CCD2B80262700B59EAC /* CarouselView.swift in Sources */,
 				B66FA14D2B719CE800FDA627 /* AddSearchResultViewCell.swift in Sources */,
 				B62143812B49E3330089721D /* APIClient.swift in Sources */,
 				B66FA1522B72B89500FDA627 /* RatingView.swift in Sources */,
