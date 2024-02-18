@@ -1,5 +1,5 @@
 //
-//  AddScreenViewController.swift
+//  GameDetailsViewController.swift
 //  MyGameListV2
 //
 //  Created by Kelvin Batista Machado on 06/02/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddScreenViewController: BaseViewController {
+class GameDetailsViewController: BaseViewController {
     
     // MARK: - Properties
     

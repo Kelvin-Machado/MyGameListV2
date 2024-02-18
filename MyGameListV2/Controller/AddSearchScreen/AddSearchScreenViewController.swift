@@ -169,7 +169,7 @@ extension AddSearchScreenViewController: UITableViewDelegate, UITableViewDataSou
             dismiss(animated: true)
             delegate?.didSelectGame(searchedGame)
         } else {
-            let addScreenVC = AddScreenViewController(game: searchedGame)
+            let addScreenVC = GameDetailsViewController(game: searchedGame)
             present(addScreenVC, animated: true, completion: nil)
         }
     }

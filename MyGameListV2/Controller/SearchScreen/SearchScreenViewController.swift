@@ -166,7 +166,7 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
 extension SearchScreenViewController: AddSearchScreenDelegate {
     func didSelectGame(_ game: Game) {
         print(game.name)
-        let addScreenVC = AddScreenViewController(game: game)
+        let addScreenVC = GameDetailsViewController(game: game)
         present(addScreenVC, animated: true, completion: nil)
     }
 }
