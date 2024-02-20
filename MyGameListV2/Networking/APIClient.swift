@@ -13,7 +13,13 @@ class APIClient {
     static let shared = APIClient()
 
     private let baseURL = "https://api.rawg.io/api/"
-    private let session = URLSession.shared
+    private let session: URLSession
+
+    init() {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = TimeInterval(15)
+        session = URLSession(configuration: configuration)
+    }
 
     func send<T: Decodable>(_ request: APIRequest<T>) -> Observable<T> {
         guard let urlRequest = request.urlRequest(withBaseURL: baseURL) else {
@@ -34,4 +40,3 @@ class APIClient {
             .observe(on: MainScheduler.instance)
     }
 }
-
