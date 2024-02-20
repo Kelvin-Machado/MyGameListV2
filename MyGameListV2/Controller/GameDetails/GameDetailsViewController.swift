@@ -25,6 +25,7 @@ class GameDetailsViewController: BaseViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Color.black
         label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.numberOfLines = .zero
         return label
     }()
     

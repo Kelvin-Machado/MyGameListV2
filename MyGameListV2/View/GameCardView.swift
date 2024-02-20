@@ -28,6 +28,7 @@ class GameCardView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Color.whiteSmoke
+        label.numberOfLines = .zero
         return label
     }()
     
