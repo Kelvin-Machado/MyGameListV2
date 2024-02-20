@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddSearchScreenDelegate: AnyObject {
-    func didSelectGame(_ game: Game)
+    func didSelectGame(_ game: Game, screenshots: [String])
 }
 
 
@@ -18,6 +18,7 @@ class AddSearchScreenViewController: BaseViewController {
     let searchBar = UISearchController()
     var searchingGame = ""
     var searchedGame: Game? = nil
+    var screenshots: [String] = []
     var isLoad: Bool = false
 
     weak var delegate: AddSearchScreenDelegate?
@@ -65,6 +66,7 @@ class AddSearchScreenViewController: BaseViewController {
                         return
                     }
                     self?.searchedGame = game
+                    self?.viewModel.screenShots(withName: game.slug)
                     self?.tableView.reloadData()
                 case .failure(let error):
                     let errorPopup = ErrorPopupViewController(errorMessage: error.localizedDescription)
@@ -73,6 +75,22 @@ class AddSearchScreenViewController: BaseViewController {
                 
             })
             .disposed(by: disposeBag)
+        
+        viewModel.searchScreenshots
+            .subscribe(onNext: { [weak self] result in
+                switch result {
+            case .success(let gameScreenshots):
+                    if let backgroundImage = self?.searchedGame?.backgroundImage {
+                        self?.screenshots = [backgroundImage]
+                    }
+                    self?.screenshots += gameScreenshots.results.map { $0.image }
+            case .failure(let error):
+                let errorPopup = ErrorPopupViewController(errorMessage: error.localizedDescription)
+                self?.present(errorPopup, animated: true, completion: nil)
+            }
+            
+        })
+        .disposed(by: disposeBag)
 
         searchBar.searchBar.rx.textDidEndEditing
             .subscribe(onNext: { [weak self] _ in
@@ -167,9 +185,9 @@ extension AddSearchScreenViewController: UITableViewDelegate, UITableViewDataSou
         print(searchedGame.name)
         if delegate != nil {
             dismiss(animated: true)
-            delegate?.didSelectGame(searchedGame)
+            delegate?.didSelectGame(searchedGame, screenshots: screenshots)
         } else {
-            let addScreenVC = GameDetailsViewController(game: searchedGame)
+            let addScreenVC = GameDetailsViewController(game: searchedGame, screenshots: screenshots)
             present(addScreenVC, animated: true, completion: nil)
         }
     }

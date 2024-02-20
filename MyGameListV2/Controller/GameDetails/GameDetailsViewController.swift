@@ -12,6 +12,7 @@ class GameDetailsViewController: BaseViewController {
     // MARK: - Properties
     
     let game: Game
+    let screenshots: [String]
     
     private let carouselView: CarouselView = {
         let carouselView = CarouselView()
@@ -57,8 +58,9 @@ class GameDetailsViewController: BaseViewController {
     
     // MARK: - Lifecycle
     
-    init(game: Game) {
+    init(game: Game, screenshots: [String]) {
         self.game = game
+        self.screenshots = screenshots
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -117,9 +119,15 @@ class GameDetailsViewController: BaseViewController {
     }
     
     private func configureCarouselView() {
+        
+        var carouselImages: [String] = []
         if let imageUrl = game.backgroundImage {
-            carouselView.configure(with: [imageUrl])
+            carouselImages.append(imageUrl)
         }
+        if !screenshots.isEmpty {
+            carouselImages = screenshots
+        }
+        carouselView.configure(with: carouselImages)
     //TODO: - Adicionar carregamento de outras imagens além do background principal
     }
     
