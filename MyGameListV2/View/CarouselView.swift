@@ -9,7 +9,7 @@ import UIKit
 
 class CarouselView: UIView {
     
-    private var imageInfos: [(index: Int, image: UIImage)] = []
+    private var imageInfos: [(index: Int, imageUrl: String)] = []
     private var currentIndex = 0
     private var timer: Timer?
     
@@ -20,6 +20,14 @@ class CarouselView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         return imageView
+    }()
+    
+    private lazy var shimmerView: UIView = {
+        let shimmerView = UIView()
+        shimmerView.backgroundColor = Color.primary
+        shimmerView.translatesAutoresizingMaskIntoConstraints = false
+        shimmerView.layer.cornerRadius = 10
+        return shimmerView
     }()
     
     private lazy var pageControl: UIPageControl = {
@@ -45,13 +53,21 @@ class CarouselView: UIView {
     }
     
     private func setupViews() {
+        addSubview(shimmerView)
         addSubview(imageView)
         addSubview(pageControl)
+        
+        shimmerView
+            .top(to: imageView.topAnchor)
+            .leading(to: imageView.leadingAnchor)
+            .trailing(to: imageView.trailingAnchor)
+            .bottom(to: imageView.bottomAnchor)
         
         imageView
             .top(to: topAnchor, constant: 16)
             .leading(to: leadingAnchor, constant: 16)
             .trailing(to: trailingAnchor, constant: -16)
+            .height(equalTo: imageView.widthAnchor, multiplier: 475.0/844.0)
         
         pageControl
             .top(to: imageView.bottomAnchor, constant: 8)
@@ -69,6 +85,8 @@ class CarouselView: UIView {
         for (index, imageUrl) in imageUrls.enumerated() {
             loadImage(from: imageUrl, atIndex: index)
         }
+        
+        updateUI()
     }
     
     private func loadImage(from urlString: String, atIndex index: Int) {
@@ -76,32 +94,30 @@ class CarouselView: UIView {
             // TODO: Adicionar tratamento de erro
             return
         }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Erro ao baixar a imagem: \(error.localizedDescription)")
-                return
+        imageInfos.append((index: index, imageUrl: urlString))
+        imageInfos.sort { $0.index < $1.index }
+        if imageInfos.count == 1 {
+            shimmerView.isHidden = false
+            shimmerView.isShimmering = true
+            imageView.setImage(from: urlString) {_ in
+                self.shimmerView.isHidden = true
+                self.shimmerView.isShimmering = false
             }
-            
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.imageInfos.append((index: index, image: image))
-                    self.imageInfos.sort { $0.index < $1.index }
-                    self.pageControl.numberOfPages = self.imageInfos.count
-                    if self.imageInfos.count == 1 {
-                        self.imageView.image = image
-                    }
-                    if self.currentIndex == 0 && self.imageInfos.count > 0 {
-                        self.imageView.image = self.imageInfos[0].image
-                    }
-                    self.pageControl.isHidden = self.imageInfos.count <= 1
-                }
+        }
+        if currentIndex == 0 && imageInfos.count > 0 {
+            shimmerView.isHidden = false
+            shimmerView.isShimmering = true
+            imageView.setImage(from: imageInfos[0].imageUrl) {_ in
+                self.shimmerView.isHidden = true
+                self.shimmerView.isShimmering = false
             }
-        }.resume()
+        }
     }
     
     private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(advanceImage), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(withTimeInterval: 6.0, repeats: true) { [weak self] _ in
+            self?.advanceImage()
+        }
     }
     
     private func stopTimer() {
@@ -109,9 +125,22 @@ class CarouselView: UIView {
         timer = nil
     }
     
+    private func updateUI() {
+        DispatchQueue.main.async {
+            self.pageControl.numberOfPages = self.imageInfos.count
+            self.pageControl.isHidden = self.imageInfos.count <= 1
+            self.pageControl.currentPage = self.currentIndex
+        }
+    }
+    
     @objc private func advanceImage() {
         currentIndex = (currentIndex + 1) % imageInfos.count
-        imageView.image = imageInfos[currentIndex].image
+        shimmerView.isHidden = false
+        shimmerView.isShimmering = true
+        imageView.setImage(from: imageInfos[currentIndex].imageUrl) {_ in
+            self.shimmerView.isHidden = true
+            self.shimmerView.isShimmering = false
+        }
         pageControl.currentPage = currentIndex
     }
     
@@ -125,7 +154,12 @@ class CarouselView: UIView {
             currentIndex = (currentIndex + 1) % imageInfos.count
         }
         
-        imageView.image = imageInfos[currentIndex].image
+        shimmerView.isHidden = false
+        shimmerView.isShimmering = true
+        imageView.setImage(from: imageInfos[currentIndex].imageUrl) {_ in
+            self.shimmerView.isHidden = true
+            self.shimmerView.isShimmering = false
+        }
         pageControl.currentPage = currentIndex
     }
 }

@@ -18,6 +18,7 @@
 		B63250162B700E1F00FE9E8A /* AddSearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */; };
 		B63250182B700F9900FE9E8A /* AddSearchScreenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63250172B700F9900FE9E8A /* AddSearchScreenDataProvider.swift */; };
 		B632501E2B71637700FE9E8A /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632501D2B71637700FE9E8A /* GameCardView.swift */; };
+		B63B98512B854769002A0B2D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B98502B854769002A0B2D /* UIImageView+Extension.swift */; };
 		B6504CCD2B80262700B59EAC /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6504CCC2B80262700B59EAC /* CarouselView.swift */; };
 		B6504CCF2B8188B300B59EAC /* GameScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6504CCE2B8188B100B59EAC /* GameScreenshots.swift */; };
 		B66FA14D2B719CE800FDA627 /* AddSearchResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66FA14C2B719CE800FDA627 /* AddSearchResultViewCell.swift */; };
@@ -83,6 +84,7 @@
 		B63250152B700E1F00FE9E8A /* AddSearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchScreenViewModel.swift; sourceTree = "<group>"; };
 		B63250172B700F9900FE9E8A /* AddSearchScreenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchScreenDataProvider.swift; sourceTree = "<group>"; };
 		B632501D2B71637700FE9E8A /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameCardView.swift; path = MyGameListV2/View/GameCardView.swift; sourceTree = SOURCE_ROOT; };
+		B63B98502B854769002A0B2D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B6504CCC2B80262700B59EAC /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		B6504CCE2B8188B100B59EAC /* GameScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenshots.swift; sourceTree = "<group>"; };
 		B66FA14C2B719CE800FDA627 /* AddSearchResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSearchResultViewCell.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				B6B037FF2B44648B0042C2E6 /* UIColor+Extension.swift */,
 				B621438A2B4B63290089721D /* Decodable+Extension.swift */,
 				B6B372BB2B62934F00AEB155 /* UIView+Extension.swift */,
+				B63B98502B854769002A0B2D /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				B6B037FE2B4463D30042C2E6 /* Color.swift in Sources */,
 				B6F5C6FF2B31E15D00F58648 /* AppDelegate.swift in Sources */,
 				B6B95AC22B40616C009110FB /* TabViewController.swift in Sources */,
+				B63B98512B854769002A0B2D /* UIImageView+Extension.swift in Sources */,
 				B63250182B700F9900FE9E8A /* AddSearchScreenDataProvider.swift in Sources */,
 				B6F5C7012B31E15D00F58648 /* SceneDelegate.swift in Sources */,
 				B6B037FB2B445E800042C2E6 /* BaseViewController.swift in Sources */,

@@ -67,26 +67,7 @@ class GameCardView: UIView {
     
     func configure(with game: Game?) {
         nameLabel.text = game?.name
-        loadImage(from: game?.backgroundImage ?? "")
-    }
-    
-    private func loadImage(from urlString: String) {
-        guard let url = URL(string: urlString) else {
-            // TODO: Adicionar tratamento
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Erro ao baixar a imagem: \(error.localizedDescription)")
-                return
-            }
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.gameImageView.image = image
-                }
-            }
-        }.resume()
+        gameImageView.setImage(from: game?.backgroundImage ?? "", fadeDuration: TimeInterval(0.3))
     }
     
     func reset() {
