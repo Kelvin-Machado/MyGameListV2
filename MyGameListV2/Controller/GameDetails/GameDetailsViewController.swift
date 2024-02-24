@@ -137,7 +137,13 @@ class GameDetailsViewController: BaseViewController {
     }
     
     private func configureRatingView() {
-        ratingView.setRating(rating: game.rating ?? 0.0, maxRating: 5.0)
+        guard let rating = game.rating, !rating.isZero else {
+            ratingView.isHidden = true
+            return
+        }
+        
+        ratingView.isHidden = false
+        ratingView.setRating(rating: rating, maxRating: 5.0)
     }
     
     private func configureDropDown() {
