@@ -27,6 +27,11 @@ struct Color {
     
     static var goldenYellow = UIColor(hexString: "FFDF00")
     
+    //green
+    static var lightGreen = UIColor(hexString: "90EE90")
+    static var MediumSpringGreen = UIColor(hexString: "00FA9A")
+    static var lime = UIColor(hexString: "00FF00")
+    
     static var lightCyan = UIColor(hexString: "E0FFFF")
     static var steelBlue = UIColor(hexString: "4682B4")
     static var lightSteelBlue = UIColor(hexString: "B0C4DE")

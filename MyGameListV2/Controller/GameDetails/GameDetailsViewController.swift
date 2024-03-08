@@ -53,7 +53,8 @@ class GameDetailsViewController: BaseViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "plus.circle"), for: .normal)
-        
+        button.tintColor = Color.lime
+        button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 60), forImageIn: .normal)
         return button
     }()
     
@@ -117,6 +118,8 @@ class GameDetailsViewController: BaseViewController {
         addButton
             .trailing(to: view.trailingAnchor, constant: -16)
             .bottom(to: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            .height(equalTo: 80)
+            .width(equalTo: 80)
     }
     
     private func configureCarouselView() {
@@ -162,5 +165,7 @@ class GameDetailsViewController: BaseViewController {
     
     @objc private func addButtonTapped() {
         //TODO: adicionar ação para o clique no botão de adicionar jogo na lista
+        
+        
     }
 }
